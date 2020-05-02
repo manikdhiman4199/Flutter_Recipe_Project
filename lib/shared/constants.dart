@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 const textInputDecoration = InputDecoration(
   errorStyle: TextStyle(
-    color: Colors.white
+    color: Colors.white,
   ),
   errorBorder: OutlineInputBorder(
     borderSide: BorderSide(

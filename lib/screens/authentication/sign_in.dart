@@ -26,21 +26,21 @@ class _SignInState extends State<SignIn> {
     return loading ? Loading() : Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/bg.jpeg'),
+          image: NetworkImage('https://images.pexels.com/photos/604969/pexels-photo-604969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
           fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.brown[500],
+          backgroundColor: Colors.blue[900],
           elevation: 0,
-          title: Text('Sign In'),
+          title: Text('Sign In',),
           actions: <Widget>[
             FlatButton.icon(onPressed: () {
               widget.toggleView();
             }, 
-            icon: Icon(Icons.person_add), 
-            label: Text('Register'))
+            icon: Icon(Icons.person_add, color: Colors.white,), 
+            label: Text('Register', style: TextStyle(color: Colors.white),))
           ],
         ),
         body: Padding(
@@ -53,7 +53,7 @@ class _SignInState extends State<SignIn> {
               children: <Widget>[
                 SizedBox(height: 20.0),
                 TextFormField(
-                  decoration: textInputDecoration,
+                  decoration: textInputDecoration.copyWith(hintText: 'Email', hintStyle: TextStyle(color: Colors.black,)),
                   validator: (val) => val.isEmpty ? 'Email cannot be empty' : null,
                   onChanged: (val) {
                     setState(() {
@@ -63,7 +63,7 @@ class _SignInState extends State<SignIn> {
                 ),
                 SizedBox(height: 10.0,),
                 TextFormField(
-                  decoration: textInputDecoration,
+                  decoration: textInputDecoration.copyWith(hintText: 'Password', hintStyle: TextStyle(color: Colors.black,)),
                   validator: (val) => val.length < 6 ? 'Password must be greater than 6 characters' : null,
                   onChanged: (val) {
                     password = val;
